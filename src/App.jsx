@@ -29,10 +29,10 @@ function App() {
         <Route path='/' element={<Home/>}/>
         {
           isAuthorised && 
-          <>
+          <Routes>
             <Route path='/dashboard' element={<Dashboard/> }/>
             <Route path='/projects' element={<Project/>}/>
-          </>
+          </Routes>
         }
         {/* <Route path='/dashboard' element={isAuthorised?<Dashboard/> : <Navigate to={'/login'}/>}/>
         <Route path='/projects' element={isAuthorised?<Project/> : <Navigate to={'/login'}/>}/> */}
