@@ -70,7 +70,7 @@ import { tokenAuthContext } from '../contexts/AuthContextAPI'
                     setTimeout(() => {
                         setInputData({username:"", email:"", password:""})
                         navigate('/')
-                        setIsLogin(true)
+                        setIsLogin(false)
                     }, 2000);
                 }else{
                     if(result?.response?.status === 404)

@@ -17,8 +17,15 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/dashboard' element={isAuthorised?<Dashboard/> : <Navigate to={'/login'}/>}/>
-        <Route path='/projects' element={isAuthorised?<Project/> : <Navigate to={'/login'}/>}/>
+        {
+          isAuthorised && 
+          <>
+            <Route path='/dashboard' element={<Dashboard/> }/>
+            <Route path='/projects' element={<Project/>}/>
+          </>
+        }
+        {/* <Route path='/dashboard' element={isAuthorised?<Dashboard/> : <Navigate to={'/login'}/>}/>
+        <Route path='/projects' element={isAuthorised?<Project/> : <Navigate to={'/login'}/>}/> */}
         <Route path='/login' element={<Auth/>}/>
         <Route path='/register' element={<Auth insideRegister = {true}/>}/>
       </Routes>

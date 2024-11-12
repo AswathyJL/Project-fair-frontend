@@ -728,8 +728,8 @@ SERVER SIDE/BACKEND:used to resolve client/front end request
             - cors package : used to enable cross origin resorce sharing - npm i cors
             - dotenv package : used to load content .env file into process object - npm i dotenv
             - mongoose package : npm i mongoose
-            - jsonwebtoken : used for authorization
-            - multer : used for handling mutlipart-formdata request
+            - jsonwebtoken : used for authorization - npm i jsonwebtoken
+            - multer : used for handling mutlipart-formdata request - npm i multer
         - create .env file in server folder, which used to stoer environmental variables of a project/app
         - create .gitignore file in server folder, which used to store file/folder to be ingored whiel adding to git, and add node_modules, .env into the file contents
         - create index.js file in server folder to define express server for resolving client request from browser 
@@ -747,12 +747,17 @@ SERVER SIDE/BACKEND:used to resolve client/front end request
         - How to set up path / url for resolving client request in server
             - create routes folder in server folder and create a js file inside the routes folder for defining path / route corresponding to client request
             - steps to define path in js file
-                - import express
-                - create an object for express router class which is capable fo setting up routes in server
-                - export the object of express Router class
-                - import object of express Router class and use router in server application
-                - to set up route
-                    - new express.Router().httpRequestMethod('path',controller-name)
+                 - import express , dotenv, cors in index.js file
+                - create express server using express package
+                - use cors in our server app , to enable data shairing between different application
+                - use express.json() in server app for parsing json data from client request
+                - create a port for server app
+                - run server app in specified port
+                - run server app using command : node index.js / nodemon index.js
+                - to resolve http request using express server : express-server-name.httpRequestMethod('path',(request,response)=>{
+                   using response object share server response to client
+                })
+                - server has to use express.static('static file/ folder path') to export the static file / folder from server
         - To set up controller for server app: used to define loginc to resolve client request 
             - create a controller folder in server, and create a js file inside ti for definigg lofic to resolve client request
             -export each controller logic from js file
@@ -774,7 +779,7 @@ SERVER SIDE/BACKEND:used to resolve client/front end request
                 - create an object for the schema class
                 - create schema for that Object
                 - create model 
-        - To setup Authoriczation using middleware 
+        - To setup Authorization using middleware 
             -create folder for middleware in server folder
             - create a js file inside folder to define middleware, export middleware
             - use middleware in route before controller

@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import View from '../components/View'
@@ -9,6 +9,7 @@ import Profile from '../components/Profile'
 const Dashboard = () => {
   const [username,setUsername]= useState("")
   useEffect(()=>{
+    
     if(sessionStorage.getItem("user")){
       setUsername(JSON.parse(sessionStorage.getItem("user")).username.split(" ")[0])
     }
