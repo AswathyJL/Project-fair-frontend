@@ -6,13 +6,23 @@ import Auth from './pages/Auth'
 import Dashboard from './pages/Dashboard'
 import Project from './pages/Project'
 import Footer from './components/Footer'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { tokenAuthContext } from './contexts/AuthContextAPI'
 
 
 
 function App() {
   const {isAuthorised,setIsAuthorised} = useContext(tokenAuthContext)
+  useEffect(()=>{
+    if(sessionStorage.getItem("token"))
+      {
+        setIsAuthorised(true)
+      }else{
+        setIsAuthorised(false)
+      }
+  },[isAuthorised])
+  console.log(isAuthorised);
+  
   return (
     <>
       <Routes>
